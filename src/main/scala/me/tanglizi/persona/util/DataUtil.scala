@@ -1,15 +1,12 @@
 package me.tanglizi.persona.util
 
-import java.sql.Date
-
 import com.google.common.base.CaseFormat
 import me.tanglizi.persona.entity.User
 import me.tanglizi.persona.model.TypePair
 import org.apache.spark.SparkConf
-import org.apache.spark.sql.{DataFrame, DataFrameReader, Dataset, Row, SparkSession}
+import org.apache.spark.sql.{Column, DataFrame, DataFrameReader, Dataset, Row, SparkSession}
 
 object DataUtil {
-  // TODO: use configuration in `application.properties`
   var url: String = "jdbc:mysql://localhost:3306/persona"
   var username: String = "root"
   var password: String = "1234"
@@ -37,7 +34,9 @@ object DataUtil {
 
   def grouping[T, U](ds: Dataset[T],
                      column: String,
+                     filter: Column,
                      map: Row => TypePair[U]): Array[TypePair[U]] = ds
+      .filter(filter)
       .groupBy(column)
       .count()
       .collect()
