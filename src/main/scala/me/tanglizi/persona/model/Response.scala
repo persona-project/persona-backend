@@ -2,10 +2,12 @@ package me.tanglizi.persona.model
 
 import java.time.Instant
 
-case class Response[A](payload: A,
-                       success: Boolean,
-                       message: String,
-                       timestamp: Instant = Instant.now()) {
+import scala.beans.BeanProperty
+
+case class Response[A](@BeanProperty payload: A,
+                       @BeanProperty success: Boolean,
+                       @BeanProperty message: String,
+                       @BeanProperty timestamp: Long = Instant.now().getEpochSecond) {
 }
 
 object Response {
