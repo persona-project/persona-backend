@@ -1,4 +1,4 @@
-package me.tanglizi.persona.util
+package org.persona.backend.util
 
 object TryWith {
 

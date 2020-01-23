@@ -1,10 +1,10 @@
-package me.tanglizi.persona.service
+package org.persona.backend.service
 
 import java.util
 
-import me.tanglizi.persona.`enum`.{Entity, UserGroup}
-import me.tanglizi.persona.model.TypeCountPair
-import me.tanglizi.persona.util.TryWith
+import org.persona.backend.`enum`.{Entity, UserGroup}
+import org.persona.backend.model.TypeCountPair
+import org.persona.backend.util.TryWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import redis.clients.jedis.{Jedis, JedisPool}

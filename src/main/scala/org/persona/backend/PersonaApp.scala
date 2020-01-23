@@ -1,4 +1,4 @@
-package me.tanglizi.persona
+package org.persona.backend
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication

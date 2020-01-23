@@ -1,8 +1,8 @@
-package me.tanglizi.persona.controller
+package org.persona.backend.controller
 
-import me.tanglizi.persona.`enum`.{Entity, UserGroup}
-import me.tanglizi.persona.model.TypeCountPair
-import me.tanglizi.persona.service.TypeCountService
+import org.persona.backend.`enum`.{Entity, UserGroup}
+import org.persona.backend.model.TypeCountPair
+import org.persona.backend.service.TypeCountService
 
 class BaseController(val typeCountService: TypeCountService, val entity: Entity.Value) {
 

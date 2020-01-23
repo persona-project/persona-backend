@@ -1,8 +1,8 @@
-package me.tanglizi.persona.controller
+package org.persona.backend.controller
 
-import me.tanglizi.persona.model.{Response, TypeCountPair}
-import me.tanglizi.persona.service.TypeCountService
-import me.tanglizi.persona.`enum`.Entity
+import org.persona.backend.model.{Response, TypeCountPair}
+import org.persona.backend.service.TypeCountService
+import org.persona.backend.`enum`.Entity
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.{GetMapping, RequestMapping, RequestParam, RestController}
 

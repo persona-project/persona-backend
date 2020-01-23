@@ -1,4 +1,4 @@
-package me.tanglizi.persona.model
+package org.persona.backend.model
 
 import scala.beans.BeanProperty
 
