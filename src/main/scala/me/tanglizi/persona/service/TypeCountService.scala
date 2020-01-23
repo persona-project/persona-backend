@@ -17,16 +17,12 @@ class TypeCountService(@Autowired val jedisPool: JedisPool) {
 
   def count[A](group: UserGroup.Value, entity: Entity.Value, key: String)(implicit converter: String => A ): Array[TypeCountPair[A]] = {
     TryWith( jedisPool.getResource: Jedis ) { jedis: Jedis =>
-      val keySet: util.Set[String] = jedis.keys(s"$group:$entity:$key:*".toLowerCase)
+      val table: String = s"$group:$entity".toLowerCase
+      val keySet: util.Set[String] = jedis.keys(s"$table:$key:*")
 
-      println(s"$group:$entity:$key:*".toLowerCase)
-      println(keySet.asScala)
-
-      // var pairs: Array[TypeCountPair[A]] = Array()
       val pairs: ArrayBuffer[TypeCountPair[A]] = ArrayBuffer()
       for (key <- keySet.asScala)
         pairs += TypeCountPair(converter(key.split(":").last), jedis.hget(key, "count").toLong)
-      println(pairs.mkString(", "))
       pairs.toArray
     }
   }
