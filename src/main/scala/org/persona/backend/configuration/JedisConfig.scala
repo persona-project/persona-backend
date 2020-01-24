@@ -1,4 +1,4 @@
-package me.tanglizi.persona.configuration
+package org.persona.backend.configuration
 
 import org.springframework.context.annotation.{Bean, Configuration}
 import redis.clients.jedis.{JedisPool, JedisPoolConfig}

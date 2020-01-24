@@ -1,4 +1,4 @@
-package me.tanglizi.persona.configuration
+package org.persona.backend.configuration
 
 import org.springframework.context.annotation.Configuration
 import springfox.documentation.builders.{PathSelectors, RequestHandlerSelectors}

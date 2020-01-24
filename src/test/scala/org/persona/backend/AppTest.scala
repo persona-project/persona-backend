@@ -1,4 +1,4 @@
-package me.tanglizi.persona
+package org.persona.backend
 
 import org.junit._
 import Assert._

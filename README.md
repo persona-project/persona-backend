@@ -1,20 +1,15 @@
 # persona-backend
-The backend for persona project, using spring and spark to build a big data platform. 
+
+The backend for persona project, using spring.
 
 
 ## Architecture
-`MySQL` ---(real-time)---> `Spark` ---> `Web(Spring)`
 
-will be considered:
-- `flume`: real-time data collecting
-- `spark`: offline data processing
-- `spark streaming`: real-time data processing
-- `redis`: cache
-- `MySQL`: as one of the data input source
+`MySQL` --- (offline) ---> `Spark` ---> `Redis` ---> `Web(Spring)`
+`flume` ---> `Kafka` ---> `SparkStreaming` --- (real-time) ---> `Web(Spring)`
+`MySQL` --- (real-time) ---> `Web(Spring)`
 
-
-## Reference
-<https://zhuanlan.zhihu.com/p/36082771>
+For more details: <https://github.com/persona-project/persona-core>
 
 
 ## License
