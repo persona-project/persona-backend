@@ -2,7 +2,7 @@ package org.persona.backend.service
 
 import java.util
 
-import org.persona.backend.`enum`.{Entity, UserGroup}
+import org.persona.backend.`enum`.{Entity, TimeGroup, UserGroup}
 import org.persona.backend.model.TypeCountPair
 import org.persona.backend.util.TryWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -15,7 +15,13 @@ import scala.collection.mutable.ArrayBuffer
 @Service
 class TypeCountService(@Autowired val jedisPool: JedisPool) {
 
-  def count[A](group: UserGroup.Value, entity: Entity.Value, key: String)(implicit converter: String => A ): Array[TypeCountPair[A]] = {
+  def countGroup[A](group: UserGroup.Value, entity: Entity.Value, key: String)(implicit converter: String => A ): Array[TypeCountPair[A]] =
+    count(group.toString, entity, key)
+
+  def countDuration[A](group: TimeGroup.Value, entity: Entity.Value, key: String)(implicit converter: String => A ): Array[TypeCountPair[A]] =
+    count(group.toString, entity, key)
+
+  private def count[A](group: String, entity: Entity.Value, key: String)(implicit converter: String => A ): Array[TypeCountPair[A]] = {
     TryWith( jedisPool.getResource: Jedis ) { jedis: Jedis =>
       val table: String = s"$group:$entity".toLowerCase
       val keySet: util.Set[String] = jedis.keys(s"$table:$key:*")
@@ -26,5 +32,4 @@ class TypeCountService(@Autowired val jedisPool: JedisPool) {
       pairs.toArray
     }
   }
-
 }

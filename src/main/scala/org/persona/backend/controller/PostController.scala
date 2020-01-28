@@ -13,50 +13,50 @@ class PostController (@Autowired override val typeCountService: TypeCountService
 
   @GetMapping(Array("/anonymous"))
   def anonymous(@RequestParam("group") group: String): Response[Array[TypeCountPair[Boolean]]] =
-    Response.ok(count(group, "anonymous"))
+    Response.ok(countGroup(group, "anonymous"))
 
   @GetMapping(Array("/countVote"))
   def countVote(@RequestParam("group") group: String): Response[Array[TypeCountPair[Int]]] =
-    Response.ok(count(group, "countVote"))
+    Response.ok(countGroup(group, "countVote"))
 
   @GetMapping(Array("/countReply"))
   def countReply(@RequestParam("group") group: String): Response[Array[TypeCountPair[Int]]] =
-    Response.ok(count(group, "countReply"))
+    Response.ok(countGroup(group, "countReply"))
 
   @GetMapping(Array("/countBrowse"))
   def countBrowse(@RequestParam("group") group: String): Response[Array[TypeCountPair[Int]]] =
-    Response.ok(count(group, "countBrowse"))
+    Response.ok(countGroup(group, "countBrowse"))
 
   @GetMapping(Array("/postTime"))
   def postTime(@RequestParam("group") group: String): Response[Array[TypeCountPair[String]]] =
-    Response.ok(count(group, "postTime"))
+    Response.ok(countGroup(group, "postTime"))
 
   @GetMapping(Array("/lastReplyTime"))
   def lastReplyTime(@RequestParam("group") group: String): Response[Array[TypeCountPair[String]]] =
-    Response.ok(count(group, "lastReplyTime"))
+    Response.ok(countGroup(group, "lastReplyTime"))
 
   @GetMapping(Array("/deleted"))
   def deleted(@RequestParam("group") group: String): Response[Array[TypeCountPair[Boolean]]] =
-    Response.ok(count(group, "deleted"))
+    Response.ok(countGroup(group, "deleted"))
 
   @GetMapping(Array("/tagSolve"))
   def tagSolve(@RequestParam("group") group: String): Response[Array[TypeCountPair[Boolean]]] =
-    Response.ok(count(group, "tagSolve"))
+    Response.ok(countGroup(group, "tagSolve"))
 
   @GetMapping(Array("/tagAgree"))
   def tagAgree(@RequestParam("group") group: String): Response[Array[TypeCountPair[Boolean]]] =
-    Response.ok(count(group, "tagAgree"))
+    Response.ok(countGroup(group, "tagAgree"))
 
   @GetMapping(Array("/tagLector"))
   def tagLector(@RequestParam("group") group: String): Response[Array[TypeCountPair[Boolean]]] =
-    Response.ok(count(group, "tagLector"))
+    Response.ok(countGroup(group, "tagLector"))
 
   @GetMapping(Array("/tagTop"))
   def tagTop(@RequestParam("group") group: String): Response[Array[TypeCountPair[Boolean]]] =
-    Response.ok(count(group, "tagTop"))
+    Response.ok(countGroup(group, "tagTop"))
 
   @GetMapping(Array("/activeFlag"))
   def activeFlag(@RequestParam("group") group: String): Response[Array[TypeCountPair[Boolean]]] =
-    Response.ok(count(group, "activeFlag"))
+    Response.ok(countGroup(group, "activeFlag"))
 
 }
