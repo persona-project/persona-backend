@@ -13,15 +13,15 @@ class UserController (@Autowired override val typeCountService: TypeCountService
 
   @GetMapping(Array("/age"))
   def age(@RequestParam("group") group: String): Response[Array[TypeCountPair[Int]]] =
-    Response.ok(count[Int](group, "age"))
+    Response.ok(countGroup[Int](group, "age"))
 
   @GetMapping(Array("/sex"))
   def sex(@RequestParam("group") group: String): Response[Array[TypeCountPair[String]]] =
-    Response.ok(count(group, "sex"))
+    Response.ok(countGroup(group, "sex"))
 
   @GetMapping(Array("/area"))
   def area(@RequestParam("group") group: String): Response[Array[TypeCountPair[String]]] =
-    Response.ok(count(group, "area"))
+    Response.ok(countGroup(group, "area"))
 
 }
 
