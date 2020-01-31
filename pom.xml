@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.example</groupId>
-  <artifactId>scala-maven</artifactId>
+  <artifactId>persona-backend</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>${project.artifactId}</name>
   <description>My wonderfull scala app</description>
@@ -110,10 +110,10 @@
         <version>3.3.2</version>
         <executions>
           <execution>
-            <goals>
+            <!-- goals>
               <goal>compile</goal>
               <goal>testCompile</goal>
-            </goals>
+            </goals -->
             <configuration>
               <args>
                 <arg>-dependencyfile</arg>
@@ -155,7 +155,7 @@
           <execution>
             <id>test</id>
             <goals>
-              <goal>test</goal>
+              <!-- goal>test</goal -->
             </goals>
           </execution>
         </executions>
@@ -197,6 +197,11 @@
         <configuration>
           <skipTests>true</skipTests>
         </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
     </plugins>
   </build>
